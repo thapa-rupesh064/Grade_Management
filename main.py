@@ -12,14 +12,12 @@ def add_student_grade(names, grades, name, grade):
         # names.append(name)
         # grades.append([grade])
 def view_all_student_grades(names, grades):
-    # if not names:
-    #     print("No student grades entered yet.")
-    # else:
-        # print("All student grades: ")
-        # for i in range(len(names)):
-        #     print(f"{names[i]}: {grades[i]}")
-        with open("grades.txt") as f:
-            f.read()
+    if not names:
+        print("No student grades entered yet.")
+    else:
+        print("All student grades: ")
+        for i in range(len(names)):
+            print(f"{names[i]}: {grades[i]}")
 def compute_average_grade(names, grades):
     if not names:
         print("No student grades entered yet.")
