@@ -4,15 +4,22 @@ def add_student_grade(names, grades, name, grade):
     if index != 1:
         grades[index].append(grade)
     else:
-        names.append(name)
-        grades.append([grade])
-def view_all_student_grades(names, grades):
-    if not names:
-        print("No student grades entered yet.")
-    else:
-        for i in range(len(names)):
-            print(f"{names[i]}: {grades[i]}")
+        with open("grades.txt", "w" ) as f:
+            f.write(name)
+            f.write(" : ")
+            f.write(f"[{grade}]")
 
+        # names.append(name)
+        # grades.append([grade])
+def view_all_student_grades(names, grades):
+    # if not names:
+    #     print("No student grades entered yet.")
+    # else:
+        # print("All student grades: ")
+        # for i in range(len(names)):
+        #     print(f"{names[i]}: {grades[i]}")
+        with open("grades.txt") as f:
+            f.read()
 def compute_average_grade(names, grades):
     if not names:
         print("No student grades entered yet.")
@@ -36,12 +43,11 @@ def main():
 
         if choice == '1':
             name = input("Enter student's name: ")
-            grade = float(input("Enter grade for the student: "))
+            grade = input("Enter grade for the student: ")
             add_student_grade(student_names, student_grades, name, grade)
             print("Grade added successfully.")
 
         elif choice == '2':
-            print("\nAll Student Grades:")
             view_all_student_grades(student_names, student_grades)
 
         elif choice == '3':
